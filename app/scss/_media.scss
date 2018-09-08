@@ -5,23 +5,95 @@
 
 // ≥1200px
 @include media-breakpoint-down(lg) {
-	
+	h1{
+		font-size: 24px;
+		margin-bottom: 0;
+	}
+	button{
+		width: 80px;
+	}
 }
 
 // ≥992px
 @include media-breakpoint-down(md) {
-
+	h1{
+		font-size: 18px;
+		white-space: nowrap;
+		margin-top: 15px;
+	}
+	button{
+		width: 50px;
+	}
 }
 
 // ≥768px
 @include media-breakpoint-down(sm) {
+	.heading-area h1{
+		padding: 0px;
+		margin-bottom: 30px;
+		margin-top: 0;
+	}
 
+	button{
+		width: 150px;
+	}
+	main{
+		.card-bitcoin,.card-litecoin,.card-etherium{
+			.card__body{
+				&::after{
+					width: 40em;
+				}
+			}
+		}
+	}
+	
 }
 
 // ≥576px
 @include media-breakpoint-down(xs) {
+	button{
+		width: 50px;
+	}
+	.selectize-control.single .selectize-input{
+		width: 190px;
+	}
+	select,.selectize-control .selectize-input,.selectize-control.single .selectize-input.input-active{
+		width: 190px;
+	}
+
+	.selectize-dropdown{
+		.single{
+			width: 190px!important;
+			color: #ffffff;
+		}
+		.selectize-control .selectize-input, .selectize-control.single .selectize-input.input-active, select{
+			width: 190px;
+		}
+		margin-top: 15px;
+		background-color: #14222B;
+		border: 1px solid #49C5D8;
+		border-radius: 5px;
+		color: #333;
+		font-size: inherit;
+	}
+	.selectize-dropdown-content{
+		width: 190px;
+		.option{
+			color: #ccc;
+		}
+		.option.active{
+			background-color: transparent;
+			cursor:pointer;
+			color: #fff;
+		}
+	}
+}
+
+@media (-ms-high-contrast: active), (-ms-high-contrast: none){
+	//disable filters on IE
 
 }
+
 
 
 /*==========  Mobile First  ==========*/

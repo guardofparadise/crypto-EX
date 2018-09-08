@@ -1,4 +1,4 @@
-var syntax        = 'sass'; // Syntax: sass or scss;
+var syntax        = 'scss'; // Syntax: sass or scss;
 
 var gulp          = require('gulp'),
 		gutil         = require('gulp-util' ),
@@ -10,6 +10,7 @@ var gulp          = require('gulp'),
 		rename        = require('gulp-rename'),
 		autoprefixer  = require('gulp-autoprefixer'),
 		notify        = require("gulp-notify"),
+		babel					= require('gulp-babel'),
 		rsync         = require('gulp-rsync');
 
 gulp.task('browser-sync', function() {
@@ -37,10 +38,12 @@ gulp.task('styles', function() {
 gulp.task('js', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
+		'app/libs/selectize.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))
 	// .pipe(uglify()) // Mifify js (opt.)
+	//.pipe(babel({presets: ['env']}))
 	.pipe(gulp.dest('app/js'))
 	.pipe(browserSync.reload({ stream: true }))
 });
@@ -67,3 +70,4 @@ gulp.task('watch', ['styles', 'js', 'browser-sync'], function() {
 });
 
 gulp.task('default', ['watch']);
+
